@@ -194,4 +194,4 @@ To ensure clean state management and complete cost avoidance:
 ## 👤 Author
 **Mohammed Mostafa Elsaeed**  
 *Computer Engineering Student | Cloud & DevOps Enthusiast*  
-[LinkedIn](https://linkedin.com) • [GitHub](https://github.com)
+[LinkedIn](https://www.linkedin.com/in/mohammed-mostafa-elsaeed/) • [GitHub](https://github.com/MOHAMMED-MOSTAFA-ELSAEED)
