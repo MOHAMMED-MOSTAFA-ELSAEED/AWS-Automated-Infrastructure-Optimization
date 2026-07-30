@@ -13,6 +13,7 @@
 
 The system provisions a secure, multi-tier cloud environment and executes an automated audit pipeline leveraging natively attached IAM Instance Profiles for zero-credential security.
 
+```mermaid
 graph TD
     %% Define Styles and Colors
     classDef awsStyle fill:#232F3E,stroke:#FF9900,stroke-width:2px,color:#FFFFFF,font-weight:bold;
