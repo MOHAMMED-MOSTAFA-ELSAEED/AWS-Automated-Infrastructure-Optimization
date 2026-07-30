@@ -58,3 +58,10 @@ graph TD
     class S3 s3Style;
     class IAM iamStyle;
     class IGW,SG,PRIV_EMPTY netStyle;
+
+## 🔥 Key Technical Highlights
+
+* **Isolated Network Architecture:** Fully automated setup of custom **VPC**, **Public/Private Subnets**, **Internet Gateway**, and **Route Tables** for structured ingress/egress management.
+* **IAM Role Security (Zero Hardcoded Keys):** Utilizes **AWS IAM Instance Profiles** attached directly to EC2. Eliminates hardcoded `AWS_ACCESS_KEY` or secret credentials inside scripts, following the **Principle of Least Privilege**.
+* **Automated Cost Optimization:** Features a **Python (Boto3)** script that queries the AWS API to identify running EC2 instances and detect orphaned/unattached **EBS Volumes** running up costs unnecessarily.
+* **Centralized Storage Pipeline:** Audit logs and JSON reports are generated dynamically and securely pushed to a dedicated **Amazon S3 Bucket**.
