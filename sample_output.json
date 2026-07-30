@@ -1,0 +1,10 @@
+{
+    "instances": [
+        {
+            "InstanceId": "i-00bc3d67a9c1c4420",
+            "State": "running",
+            "Type": "t3.small"
+        }
+    ],
+    "orphaned_volumes": []
+}
