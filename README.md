@@ -7,55 +7,13 @@
 
 > An automated, production-grade cloud solution designed to provision multi-tier isolated network infrastructure on AWS, run programmatic resource audits, detect cost waste (orphaned resources), and export centralized reports to Amazon S3 using Python and IAM Role-based security.
 
----
-
 ## 📐 Architecture Overview
 
 The system provisions a secure, multi-tier cloud environment and executes an automated audit pipeline leveraging natively attached IAM Instance Profiles for zero-credential security.
 
-~~~mermaid
-graph TD
-    classDef awsStyle fill:#232F3E,stroke:#FF9900,stroke-width:2px,color:#FFFFFF,font-weight:bold;
-    classDef vpcStyle fill:#001E2B,stroke:#00A4E4,stroke-width:2px,color:#FFFFFF,font-weight:bold;
-    classDef pubSubnetStyle fill:#0A2F1D,stroke:#3B82F6,stroke-width:1.5px,color:#FFFFFF;
-    classDef privSubnetStyle fill:#1F2937,stroke:#6B7280,stroke-width:1.5px,stroke-dasharray: 5 5,color:#9CA3AF;
-    classDef ec2Style fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#000000,font-weight:bold;
-    classDef s3Style fill:#569A31,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF,font-weight:bold;
-    classDef iamStyle fill:#DD344C,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF,font-weight:bold;
-    classDef netStyle fill:#161E2E,stroke:#00A4E4,stroke-width:1px,color:#FFFFFF;
-
-    subgraph AWS_Cloud ["☁️ AWS Cloud Region (us-east-1)"]
-        subgraph VPC ["🌐 Prod-VPC (10.0.0.0/16)"]
-            IGW["🌐 Internet Gateway (IGW)"]
-            
-            subgraph Public_Subnet ["🔓 Public Subnet (10.0.1.0/24)"]
-                EC2["🖥️ EC2 Instance (Linux)"]
-                SG["🛡️ Security Group (SSH :22)"]
-            end
-            
-            subgraph Private_Subnet ["🔒 Private Subnet (10.0.2.0/24)"]
-                PRIV_EMPTY["📦 Reserved for Isolated Workloads"]
-            end
-        end
-        
-        IAM["🔑 IAM Role (S3 & EC2 Read)"]
-        S3[("🪣 S3 Bucket (Audit Central Storage)")]
-    end
-
-    IGW <===>|"🌍 Public Traffic"| Public_Subnet
-    EC2 <--->|"🔒 Protected By"| SG
-    IAM -.->|"🛡️ Attached Instance Profile"| EC2
-    EC2 ==>|"📊 Automated Python Boto3 Report"| S3
-
-    class AWS_Cloud awsStyle;
-    class VPC vpcStyle;
-    class Public_Subnet pubSubnetStyle;
-    class Private_Subnet privSubnetStyle;
-    class EC2 ec2Style;
-    class S3 s3Style;
-    class IAM iamStyle;
-    class IGW,SG,PRIV_EMPTY netStyle;
-~~~
+<p align="center">
+  <img src="./audit_architecture_diagram.png" alt="AWS Security Architecture Diagram" width="850">
+</p>
 
 ---
 
